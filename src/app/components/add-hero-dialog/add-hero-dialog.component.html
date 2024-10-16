@@ -1,0 +1,35 @@
+<h2 mat-dialog-title>New Super Hero</h2>
+
+<form [formGroup]="heroForm" (ngSubmit)="onSubmit()">
+    <mat-dialog-content>
+        <mat-form-field appearance="fill" class="w-100">
+            <mat-label>Hero Name</mat-label>
+            <input matInput formControlName="name" required placeholder="Enter Name">
+            <mat-error *ngIf="heroForm.get('name')?.hasError('required')">
+                Name is required
+            </mat-error>
+            <mat-error *ngIf="heroForm.get('name')?.hasError('minlength')">
+                Name must be at least 3 characters
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="w-100">
+            <mat-label>Power</mat-label>
+            <input matInput formControlName="power" required placeholder="Enter Power">
+            <mat-error *ngIf="heroForm.get('power')?.hasError('required')">
+                Power is required
+            </mat-error>
+            <mat-error *ngIf="heroForm.get('power')?.hasError('minlength')">
+                Power must be at least 3 characters
+            </mat-error>
+        </mat-form-field>
+    </mat-dialog-content>
+
+    <mat-dialog-actions align="end">
+        <div class="d-flex gap-3">
+            <button class="btn btn-primary" mat-button type="submit" [disabled]="heroForm.invalid" color="primary">Add
+                Hero</button>
+            <button class="btn btn-primary" mat-button type="button" mat-dialog-close>Cancel</button>
+        </div>
+    </mat-dialog-actions>
+</form>

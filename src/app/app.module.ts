@@ -2,19 +2,23 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeroListComponent } from './components/hero-list/hero-list.component';
+import { HeroListComponent } from './pages/hero-list/hero-list.component';
 import { MaterialModule } from './material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AddHeroDialogComponent } from './components/add-hero-dialog/add-hero-dialog.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeroListComponent
+    HeroListComponent,
+    AddHeroDialogComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
+    ReactiveFormsModule,
     MaterialModule
   ],
   providers: [],
