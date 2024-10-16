@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeroListComponent } from './components/hero-list/hero-list.component';
+import { MaterialModule } from './material.module';
 
 @NgModule({
   declarations: [
@@ -11,7 +12,8 @@ import { HeroListComponent } from './components/hero-list/hero-list.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]
