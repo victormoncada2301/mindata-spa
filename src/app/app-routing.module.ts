@@ -1,7 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { HeroListComponent } from './components/hero-list/hero-list.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  { path: '', component: HeroListComponent }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
