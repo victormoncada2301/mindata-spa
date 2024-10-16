@@ -1,31 +1,33 @@
-<table mat-table [dataSource]="heroes" class="mat-elevation-z8">
-
-    <!-- Nombre de la Columna -->
-    <ng-container matColumnDef="name">
-        <th mat-header-cell *matHeaderCellDef> Name </th>
-        <td mat-cell *matCellDef="let hero"> {{hero.name}} </td>
-    </ng-container>
-
-    <!-- Poder de la Columna -->
-    <ng-container matColumnDef="power">
-        <th mat-header-cell *matHeaderCellDef> Power </th>
-        <td mat-cell *matCellDef="let hero"> {{hero.power}} </td>
-    </ng-container>
-
-    <!-- Acciones Columna -->
-    <ng-container matColumnDef="actions">
-        <th mat-header-cell *matHeaderCellDef> Actions </th>
-        <td mat-cell *matCellDef="let hero">
-            <button mat-icon-button color="primary" (click)="editHero(hero)">
-                <mat-icon>edit</mat-icon>
-            </button>
-            <button mat-icon-button color="warn" (click)="deleteHero(hero.id)">
-                <mat-icon>delete</mat-icon>
-            </button>
-        </td>
-    </ng-container>
-
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-</table>
-<mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+<div class="container-table">
+    <table mat-table [dataSource]="heroes">
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef> Name </th>
+            <td mat-cell *matCellDef="let hero"> {{hero.name}} </td>
+        </ng-container>
+        <ng-container matColumnDef="power">
+            <th mat-header-cell *matHeaderCellDef> Power </th>
+            <td mat-cell *matCellDef="let hero"> {{hero.power}} </td>
+        </ng-container>
+        <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef>Actions</th>
+            <td mat-cell *matCellDef="let hero">
+                <button class="mat-menu-button" mat-icon-button [matMenuTriggerFor]="menu">
+                    <mat-icon>more_vert</mat-icon>
+                </button>
+                <mat-menu #menu="matMenu">
+                    <button mat-menu-item (click)="editHero(hero)">
+                        <mat-icon>edit</mat-icon>
+                        <span>Edit</span>
+                    </button>
+                    <button mat-menu-item (click)="deleteHero(hero.id)">
+                        <mat-icon>delete</mat-icon>
+                        <span>Delete</span>
+                    </button>
+                </mat-menu>
+            </td>
+        </ng-container>
+        <tr class="header-table" mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr class="content-table" mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+</div>
+<mat-paginator [pageSizeOptions]="[5, 10, 20]"></mat-paginator>

@@ -1,0 +1,39 @@
+/* Angular Material Theme */
+
+@use '@angular/material' as mat;
+@import './assets/sass/colors.sass';
+@import './assets/sass/table.sass';
+
+@include mat.core();
+
+$blue-palette: (
+    100: $primary-100,
+    400: $primary-400,
+    500: $primary,
+    700: $primary-700,
+    900: $primary-900,
+    contrast: (50: rgba(black, 0.87),
+        100: rgba(black, 0.87),
+        200: rgba(black, 0.87),
+        300: white)
+);
+
+$green-palette: (
+    100: $secondary-100,
+    400: $secondary-400,
+    500: $secondary,
+    700: $secondary-700,
+    900: $secondary-900,
+    contrast: (50: rgba(black, 0.87),
+        100: rgba(black, 0.87),
+        200: rgba(black, 0.87),
+        300: white)
+);
+
+$my-primary: mat.define-palette($green-palette, 500);
+$my-accent: mat.define-palette($blue-palette, 500);
+
+$my-theme: mat.define-light-theme((color: (primary: $my-primary,
+                accent: $my-accent )));
+
+@include mat.all-component-themes($my-theme);
