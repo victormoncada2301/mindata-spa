@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MatDialogRef } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { Hero } from 'src/app/core/models/hero.model';
 
 @Component({
   selector: 'app-add-hero-dialog',
@@ -12,12 +13,17 @@ export class AddHeroDialogComponent {
 
   constructor(
     private fb: FormBuilder,
-    public dialogRef: MatDialogRef<AddHeroDialogComponent>
+    public dialogRef: MatDialogRef<AddHeroDialogComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: Hero
   ) {
     this.heroForm = this.fb.group({
       name: ['', [Validators.required, Validators.minLength(3)]],
       power: ['', [Validators.required, Validators.minLength(3)]]
     });
+
+    if (data) {
+      this.heroForm.patchValue(data);
+    }
   }
 
   onSubmit(): void {

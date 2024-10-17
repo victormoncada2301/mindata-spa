@@ -46,10 +46,11 @@ export class HeroService {
     this.heroes.push({ id: this.id++, name, power });
   }
 
-  updateHero(updatedHero: Hero): void {
-    const index = this.heroes.findIndex(hero => hero.id === updatedHero.id);
-    if (index > -1) {
-      this.heroes[index] = updatedHero;
+  updateHero(id: number, name: string, power: string): void {
+    const hero = this.heroes.find(h => h.id === id);
+    if (hero) {
+      hero.name = name;
+      hero.power = power;
     }
   }
 

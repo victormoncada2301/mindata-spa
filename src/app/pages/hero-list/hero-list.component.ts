@@ -24,6 +24,14 @@ export class HeroListComponent implements OnInit {
     this.loadHeroes();
   }
 
+  ngAfterViewInit() {
+    this.heroes.paginator = this.paginator;
+  }
+
+  loadHeroes(): void {
+    this.heroes.data = this.heroService.getAllHeroes();
+  }
+
   addHero(): void {
     const dialogRef = this.dialog.open(AddHeroDialogComponent, {
       width: '400px'
@@ -35,15 +43,6 @@ export class HeroListComponent implements OnInit {
       }
     });
   }
-
-  ngAfterViewInit() {
-    this.heroes.paginator = this.paginator;
-  }
-
-  loadHeroes(): void {
-    this.heroes.data = this.heroService.getAllHeroes();
-  }
-
 
   deleteHero(id: number): void {
     const dialogRef = this.dialog.open(ConfirmDialogComponent, {
@@ -58,6 +57,16 @@ export class HeroListComponent implements OnInit {
   }
 
   editHero(hero: Hero): void {
-    // Implementa la lógica para abrir un formulario de edición y modificar el héroe
+    const dialogRef = this.dialog.open(AddHeroDialogComponent, {
+      width: '400px',
+      data: hero
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.heroService.updateHero(hero.id, result.name, result.power);
+        this.loadHeroes();
+      }
+    });
   }
 }

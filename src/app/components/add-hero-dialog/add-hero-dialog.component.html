@@ -1,4 +1,4 @@
-<h2 mat-dialog-title>New Super Hero</h2>
+<h2 mat-dialog-title>{{ data ? 'Edit Super Hero' : 'Add New Super Hero' }}</h2>
 
 <form [formGroup]="heroForm" (ngSubmit)="onSubmit()">
     <mat-dialog-content>
@@ -25,11 +25,14 @@
         </mat-form-field>
     </mat-dialog-content>
 
-    <mat-dialog-actions align="end">
-        <div class="d-flex gap-3">
-            <button class="btn btn-primary" mat-button type="submit" [disabled]="heroForm.invalid" color="primary">Add
-                Hero</button>
-            <button class="btn btn-primary" mat-button type="button" mat-dialog-close>Cancel</button>
+    <mat-dialog-actions>
+        <div class="d-flex justify-content-end gap-2 w-100">
+            <button class="btn btn-primary" mat-button type="submit" [disabled]="!heroForm.valid">
+                {{ data ? 'Update Hero' : 'Add Hero' }}
+            </button>
+            <button class="btn btn-primary" mat-button type="button" mat-dialog-close>
+                {{ data ? 'No' : 'Cancel' }}
+            </button>
         </div>
     </mat-dialog-actions>
 </form>
