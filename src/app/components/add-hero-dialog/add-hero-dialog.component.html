@@ -4,7 +4,7 @@
     <mat-dialog-content>
         <mat-form-field appearance="fill" class="w-100">
             <mat-label>Hero Name</mat-label>
-            <input matInput formControlName="name" required placeholder="Enter Name">
+            <input matInput formControlName="name" appUppercase required placeholder="Enter Name">
             <mat-error *ngIf="heroForm.get('name')?.hasError('required')">
                 Name is required
             </mat-error>
