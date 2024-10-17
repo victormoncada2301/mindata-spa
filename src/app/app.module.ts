@@ -9,6 +9,9 @@ import { AddHeroDialogComponent } from './components/add-hero-dialog/add-hero-di
 import { ReactiveFormsModule } from '@angular/forms';
 import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
 import { UppercaseDirective } from './core/directives/uppercase.directive';
+import { LoadingInterceptor } from './core/interceptors/loading.interceptor';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { LoadingSpinnerComponent } from './components/loading/loading-spinner.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +19,8 @@ import { UppercaseDirective } from './core/directives/uppercase.directive';
     HeroListComponent,
     AddHeroDialogComponent,
     ConfirmDialogComponent,
-    UppercaseDirective
+    UppercaseDirective,
+    LoadingSpinnerComponent
   ],
   imports: [
     BrowserModule,
@@ -25,7 +29,9 @@ import { UppercaseDirective } from './core/directives/uppercase.directive';
     ReactiveFormsModule,
     MaterialModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

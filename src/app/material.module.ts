@@ -9,6 +9,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 const materialModules = [
     MatFormFieldModule,
@@ -21,6 +22,7 @@ const materialModules = [
     MatDialogModule,
     MatIconModule,
     MatPaginatorModule,
+    MatProgressSpinnerModule
 ];
 
 @NgModule({
