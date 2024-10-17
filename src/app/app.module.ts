@@ -8,7 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AddHeroDialogComponent } from './components/add-hero-dialog/add-hero-dialog.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
-import { UppercaseDirective } from './directives/uppercase.directive';
+import { UppercaseDirective } from './core/directives/uppercase.directive';
 
 @NgModule({
   declarations: [
