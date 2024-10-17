@@ -5,12 +5,24 @@
         </div>
         <div class="col-md-2 text-end">
             <button (click)="addHero()" type="button" class="btn btn-primary text-uppercase">
-                New Super Hero
+                New Hero
             </button>
         </div>
     </div>
 
     <div class="container-table">
+        <form class="w-100" [formGroup]="searchForm">
+            <div class="row">
+                <div class="col-md-3 -offset-9">
+                    <mat-form-field appearance="outline" class="w-100">
+                        <mat-label>Filter Heroes</mat-label>
+                        <input type="text" matInput formControlName="search" (keyup)="applyFilter($event)"
+                            placeholder="Search by ID, name, or power" />
+                        <mat-icon class="mat-icon" matSuffix>search</mat-icon>
+                    </mat-form-field>
+                </div>
+            </div>
+        </form>
         <table mat-table [dataSource]="heroes">
             <!-- Id Column -->
             <ng-container matColumnDef="id">

@@ -5,16 +5,19 @@ import { HeroService, Hero } from '../../core/services/hero.service';
 import { MatDialog } from '@angular/material/dialog';
 import { AddHeroDialogComponent } from 'src/app/components/add-hero-dialog/add-hero-dialog.component';
 import { ConfirmDialogComponent } from 'src/app/components/confirm-dialog/confirm-dialog.component';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-hero-list',
   templateUrl: './hero-list.component.html',
   styleUrls: ['./hero-list.component.sass']
 })
-
 export class HeroListComponent implements OnInit {
   displayedColumns: string[] = ['id', 'name', 'power', 'actions'];
   heroes = new MatTableDataSource<Hero>();
+  searchForm = new FormGroup({
+    search: new FormControl('')
+  });
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
@@ -22,6 +25,14 @@ export class HeroListComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadHeroes();
+    this.heroes.filterPredicate = (data: Hero, filter: string) => {
+      const transformedFilter = filter.trim().toLowerCase();
+      return (
+        data.id.toString().includes(transformedFilter) ||
+        data.name.toLowerCase().includes(transformedFilter) ||
+        data.power.toLowerCase().includes(transformedFilter)
+      );
+    };
   }
 
   ngAfterViewInit() {
@@ -69,4 +80,13 @@ export class HeroListComponent implements OnInit {
       }
     });
   }
+
+  applyFilter(event: Event): void {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.heroes.filter = filterValue.trim().toLowerCase();
+    if (this.heroes.paginator) {
+      this.heroes.paginator.firstPage();
+    }
+  }
+  
 }
