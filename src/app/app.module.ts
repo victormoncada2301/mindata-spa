@@ -5,13 +5,13 @@ import { AppComponent } from './app.component';
 import { HeroListComponent } from './pages/hero-list/hero-list.component';
 import { MaterialModule } from './material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AddHeroDialogComponent } from './components/add-hero-dialog/add-hero-dialog.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
 import { UppercaseDirective } from './core/directives/uppercase.directive';
 import { LoadingInterceptor } from './core/interceptors/loading.interceptor';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { LoadingSpinnerComponent } from './components/loading/loading-spinner.component';
+import { AddHeroDialogComponent } from './core/components/add-hero-dialog/add-hero-dialog.component';
+import { ConfirmDialogComponent } from './core/components/confirm-dialog/confirm-dialog.component';
+import { LoadingSpinnerComponent } from './core/components/loading/loading-spinner.component';
 
 @NgModule({
   declarations: [

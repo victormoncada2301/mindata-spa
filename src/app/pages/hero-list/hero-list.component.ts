@@ -3,10 +3,10 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { HeroService, Hero } from '../../core/services/hero.service';
 import { MatDialog } from '@angular/material/dialog';
-import { AddHeroDialogComponent } from 'src/app/components/add-hero-dialog/add-hero-dialog.component';
-import { ConfirmDialogComponent } from 'src/app/components/confirm-dialog/confirm-dialog.component';
 import { FormControl, FormGroup } from '@angular/forms';
 import { LoadingService } from 'src/app/core/services/loading.service';
+import { AddHeroDialogComponent } from 'src/app/core/components/add-hero-dialog/add-hero-dialog.component';
+import { ConfirmDialogComponent } from 'src/app/core/components/confirm-dialog/confirm-dialog.component';
 
 @Component({
   selector: 'app-hero-list',
