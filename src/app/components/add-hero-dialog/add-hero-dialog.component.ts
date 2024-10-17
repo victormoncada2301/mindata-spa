@@ -2,6 +2,7 @@ import { Component, Inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Hero } from 'src/app/core/models/hero.model';
+import { LoadingService } from 'src/app/core/services/loading.service';
 
 @Component({
   selector: 'app-add-hero-dialog',
@@ -14,6 +15,7 @@ export class AddHeroDialogComponent {
   constructor(
     private fb: FormBuilder,
     public dialogRef: MatDialogRef<AddHeroDialogComponent>,
+    private loadingService: LoadingService,
     @Inject(MAT_DIALOG_DATA) public data: Hero
   ) {
     this.heroForm = this.fb.group({
@@ -28,6 +30,7 @@ export class AddHeroDialogComponent {
 
   onSubmit(): void {
     if (this.heroForm.valid) {
+      this.loadingService.show();
       this.dialogRef.close(this.heroForm.value);
     }
   }

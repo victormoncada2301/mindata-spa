@@ -6,6 +6,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { AddHeroDialogComponent } from 'src/app/components/add-hero-dialog/add-hero-dialog.component';
 import { ConfirmDialogComponent } from 'src/app/components/confirm-dialog/confirm-dialog.component';
 import { FormControl, FormGroup } from '@angular/forms';
+import { LoadingService } from 'src/app/core/services/loading.service';
 
 @Component({
   selector: 'app-hero-list',
@@ -21,7 +22,7 @@ export class HeroListComponent implements OnInit {
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  constructor(private heroService: HeroService, public dialog: MatDialog) { }
+  constructor(private heroService: HeroService, public dialog: MatDialog, private loadingService: LoadingService) { }
 
   ngOnInit(): void {
     this.loadHeroes();
@@ -41,6 +42,9 @@ export class HeroListComponent implements OnInit {
 
   loadHeroes(): void {
     this.heroes.data = this.heroService.getAllHeroes();
+    setTimeout(() => {
+      this.loadingService.hide();
+    }, 1000);
   }
 
   addHero(): void {
@@ -88,5 +92,4 @@ export class HeroListComponent implements OnInit {
       this.heroes.paginator.firstPage();
     }
   }
-  
 }
