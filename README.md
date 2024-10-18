@@ -97,4 +97,5 @@ Luego, abre tu navegador y navega a http://localhost:4200/ para ver la aplicaci�
 
 La aplicación se recargará automáticamente cada vez que realices cambios en el código fuente.
 
-![image](https://github.com/user-attachments/assets/1186a9d2-dcff-4435-ad72-d38fe2bb1d4e)
+![image](https://github.com/user-attachments/assets/f3fffc23-ad2b-4bbf-bbec-31085e46ac51)
+
