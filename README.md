@@ -28,6 +28,7 @@ Para poder trabajar con este proyecto, asegúrate de tener instalados los siguie
 
 ## components :
 
+- header: Componente que muestra el encabezado de la página
 - hero-list: Componente que muestra el listado paginado de héroes.
 - add-hero-dialog: Componente de diálogo para agregar o editar héroes.
 - confirm-dialog: Diálogo de confirmación para eliminar un héroe.
