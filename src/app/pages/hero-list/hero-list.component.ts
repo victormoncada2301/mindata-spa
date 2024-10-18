@@ -55,7 +55,7 @@ export class HeroListComponent implements OnInit {
 
   deleteHero(id: number): void {
     const dialogRef = this.dialog.open(ConfirmDialogComponent, {
-      width: '300px'
+      width: '400px'
     });
     dialogRef.afterClosed().subscribe(result => {
       if (result) {

@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container d-flex justify-content-center align-items-center min-vh-100">
     <div class="container-table">
         <form class="w-100" [formGroup]="searchForm">
             <div class="row">
@@ -54,7 +54,6 @@
             <tr class="header-table" mat-header-row *matHeaderRowDef="displayedColumns"></tr>
             <tr class="content-table" mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
         </table>
+        <mat-paginator [pageSizeOptions]="[5, 10, 20]"></mat-paginator>
     </div>
-
-    <mat-paginator [pageSizeOptions]="[5, 10, 20]"></mat-paginator>
 </div>
