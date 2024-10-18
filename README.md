@@ -1,27 +1,23 @@
-# SPA
+# SPA - Super Héroes
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.16.
+Esta aplicación permite gestionar un listado de héroes, donde puedes agregar, editar, eliminar y buscar héroes de una manera intuitiva. A continuación, se detallan los pasos necesarios para clonar, instalar y ejecutar el proyecto en tu entorno local.
 
-## Development server
+## Requisitos previos
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Para poder trabajar con este proyecto, asegúrate de tener instalados los siguientes programas en tu equipo:
+- [Node.js](https://nodejs.org/)
+- [Visual Studio Code](https://code.visualstudio.com/)
+- [Git](https://git-scm.com/)
+- Clonar el repositorio
 
-## Code scaffolding
+# Instalar las depencias 
+- npm install
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Levantar la aplicación
 
-## Build
+- ng serve
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Running unit tests
+Luego, abre tu navegador y navega a http://localhost:4200/ para ver la aplicación en funcionamiento. La aplicación se recargará automáticamente cada vez que realices cambios en el código fuente.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+![image](https://github.com/user-attachments/assets/1186a9d2-dcff-4435-ad72-d38fe2bb1d4e)
