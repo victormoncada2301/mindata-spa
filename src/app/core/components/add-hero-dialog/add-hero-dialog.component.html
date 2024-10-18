@@ -27,10 +27,10 @@
 
     <mat-dialog-actions>
         <div class="d-flex justify-content-end gap-2 w-100">
-            <button class="btn btn-primary" mat-button type="submit" [disabled]="!heroForm.valid">
+            <button class="btn btn-secondary" mat-button type="submit" [disabled]="!heroForm.valid">
                 {{ data ? 'Update Hero' : 'Add Hero' }}
             </button>
-            <button class="btn btn-primary" mat-button type="button" mat-dialog-close>
+            <button class="btn btn-secondary" mat-button type="button" mat-dialog-close>
                 {{ data ? 'No' : 'Cancel' }}
             </button>
         </div>

@@ -53,17 +53,6 @@ export class HeroListComponent implements OnInit {
     this.loadingService.hide();
   }
 
-  addHero(): void {
-    const dialogRef = this.dialog.open(AddHeroDialogComponent, {
-      width: '400px'
-    });
-    dialogRef.afterClosed().subscribe(result => {
-      if (result) {
-        this.heroService.addHero(result.name, result.power);
-      }
-    });
-  }
-
   deleteHero(id: number): void {
     const dialogRef = this.dialog.open(ConfirmDialogComponent, {
       width: '300px'

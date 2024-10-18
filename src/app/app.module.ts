@@ -12,6 +12,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AddHeroDialogComponent } from './core/components/add-hero-dialog/add-hero-dialog.component';
 import { ConfirmDialogComponent } from './core/components/confirm-dialog/confirm-dialog.component';
 import { LoadingSpinnerComponent } from './core/components/loading/loading-spinner.component';
+import { HeaderComponent } from './core/components/header/header.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { LoadingSpinnerComponent } from './core/components/loading/loading-spinn
     AddHeroDialogComponent,
     ConfirmDialogComponent,
     UppercaseDirective,
-    LoadingSpinnerComponent
+    LoadingSpinnerComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
