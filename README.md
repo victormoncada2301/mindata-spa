@@ -50,6 +50,37 @@ Para poder trabajar con este proyecto, asegúrate de tener instalados los siguie
 En Angular 16, se introducen los signals, un enfoque reactivo más eficiente para gestionar el estado. En esta aplicación, se utilizan signals para manejar la lista de héroes y asegurar que los cambios en los datos se reflejen automáticamente 
 en la interfaz sin necesidad de suscripciones adicionales.
 
+### Uso de `signals` en `HeroService`
+
+```typescript
+import { Injectable, signal } from '@angular/core';
+import { Hero } from '../models/hero.model';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class HeroService {
+  private id: number = 1;
+  private heroesSignal = signal<Hero[]>([
+    { id: this.id++, name: 'SPIDERMAN', power: 'Wall-crawling' },
+    { id: this.id++, name: 'SUPERMAN', power: 'Super strength' }
+  ]);
+
+  getAllHeroes() {
+    return this.heroesSignal();
+  }
+
+  addHero(name: string, power: string) {
+    this.heroesSignal.update(heroes => [...heroes, { id: this.id++, name, power }]);
+  }
+}
+
+effect(() => {
+  const heroes = this.heroService.heroes();
+  this.heroesDataSource.data = heroes;
+});
+```
+
 # Tecnologías utilizadas
 
 - Angular 16: Framework principal para el desarrollo de la aplicación.
