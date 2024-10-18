@@ -88,7 +88,9 @@ effect(() => {
 - Angular Material: Librería utilizada para la interfaz de usuario.
 - TypeScript: Lenguaje de programación utilizado para escribir código tipado.
 - Karma y Jasmine: Herramientas para ejecutar tests unitarios.
-- Git: Control de versiones.
+
+![image](https://github.com/user-attachments/assets/36cd3ac0-ada3-4003-a2f7-2632544e02d1)
+
    
 # Ejecutar la aplicación
 
