@@ -45,7 +45,7 @@ Para poder trabajar con este proyecto, asegúrate de tener instalados los siguie
 
   - loading.interceptor.ts: Interceptor que activa el spinner mientras se realizan operaciones.
 
-# Uso de Signals 
+# Signals 
 
 En Angular 16, se introducen los signals, un enfoque reactivo más eficiente para gestionar el estado. En esta aplicación, se utilizan signals para manejar la lista de héroes y asegurar que los cambios en los datos se reflejen automáticamente 
 en la interfaz sin necesidad de suscripciones adicionales.
