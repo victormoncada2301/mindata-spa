@@ -11,6 +11,13 @@ Esta aplicación es una SPA (Single Page Application) desarrollada en Angular qu
 -  Modificar un héroe existente: Se puede seleccionar un héroe del listado para editar su nombre y poder.
 -  Eliminar un héroe: Opción para eliminar un héroe, con una confirmación previa.
 
+# Tecnologías utilizadas
+
+- Angular 16: Framework principal para el desarrollo de la aplicación.
+- Angular Material: Librería utilizada para la interfaz de usuario.
+- TypeScript: Lenguaje de programación utilizado para escribir código tipado.
+- Karma y Jasmine: Herramientas para ejecutar tests unitarios.
+  
 # Requisitos previos
 
 Para poder trabajar con este proyecto, asegúrate de tener instalados los siguientes programas en tu equipo:
@@ -19,11 +26,11 @@ Para poder trabajar con este proyecto, asegúrate de tener instalados los siguie
 - [Git](https://git-scm.com/)
 - Clonar el repositorio
 - Instalar las dependencias
-  
+
 # Estructura de carpetas y archivos principales:
 
 ## src/app/:
- 
+
   Contiene todos los componentes, servicios y módulos de la aplicación.
 
 ## components :
@@ -82,17 +89,13 @@ effect(() => {
 });
 ```
 
-# Tecnologías utilizadas
+# Pruebas Unitarias
 
-- Angular 16: Framework principal para el desarrollo de la aplicación.
-- Angular Material: Librería utilizada para la interfaz de usuario.
-- TypeScript: Lenguaje de programación utilizado para escribir código tipado.
-- Karma y Jasmine: Herramientas para ejecutar tests unitarios.
+![image](https://github.com/user-attachments/assets/03decfe9-6782-4820-a4f3-64b3523d3504)
 
 ![image](https://github.com/user-attachments/assets/36cd3ac0-ada3-4003-a2f7-2632544e02d1)
 
-   
-# Ejecutar la aplicación
+# Ejecución de la aplicación
 
 - ng serve
   
