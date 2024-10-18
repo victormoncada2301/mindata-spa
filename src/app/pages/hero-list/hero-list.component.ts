@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, effect } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { HeroService, Hero } from '../../core/services/hero.service';
@@ -15,18 +15,30 @@ import { ConfirmDialogComponent } from 'src/app/core/components/confirm-dialog/c
 })
 export class HeroListComponent implements OnInit {
   displayedColumns: string[] = ['id', 'name', 'power', 'actions'];
-  heroes = new MatTableDataSource<Hero>();
+  heroesDataSource = new MatTableDataSource<Hero>();
   searchForm = new FormGroup({
     search: new FormControl('')
   });
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  constructor(private heroService: HeroService, public dialog: MatDialog, private loadingService: LoadingService) { }
+  constructor(
+    private heroService: HeroService,
+    public dialog: MatDialog,
+    private loadingService: LoadingService
+  ) {
+    effect(() => {
+      const heroes = this.heroService.heroes();
+      this.heroesDataSource.data = heroes;
+      setTimeout(() => {
+        this.loadingService.hide();  
+      }, 1000);
+    });
+  }
 
   ngOnInit(): void {
-    this.loadHeroes();
-    this.heroes.filterPredicate = (data: Hero, filter: string) => {
+    this.loadingService.show();
+    this.heroesDataSource.filterPredicate = (data: Hero, filter: string) => {
       const transformedFilter = filter.trim().toLowerCase();
       return (
         data.id.toString().includes(transformedFilter) ||
@@ -37,14 +49,8 @@ export class HeroListComponent implements OnInit {
   }
 
   ngAfterViewInit() {
-    this.heroes.paginator = this.paginator;
-  }
-
-  loadHeroes(): void {
-    this.heroes.data = this.heroService.getAllHeroes();
-    setTimeout(() => {
-      this.loadingService.hide();
-    }, 1000);
+    this.heroesDataSource.paginator = this.paginator;
+    this.loadingService.hide();
   }
 
   addHero(): void {
@@ -54,7 +60,6 @@ export class HeroListComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         this.heroService.addHero(result.name, result.power);
-        this.loadHeroes();
       }
     });
   }
@@ -66,7 +71,6 @@ export class HeroListComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         this.heroService.deleteHero(id);
-        this.loadHeroes();
       }
     });
   }
@@ -80,16 +84,15 @@ export class HeroListComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         this.heroService.updateHero(hero.id, result.name, result.power);
-        this.loadHeroes();
       }
     });
   }
 
   applyFilter(event: Event): void {
     const filterValue = (event.target as HTMLInputElement).value;
-    this.heroes.filter = filterValue.trim().toLowerCase();
-    if (this.heroes.paginator) {
-      this.heroes.paginator.firstPage();
+    this.heroesDataSource.filter = filterValue.trim().toLowerCase();
+    if (this.heroesDataSource.paginator) {
+      this.heroesDataSource.paginator.firstPage();
     }
   }
 }
